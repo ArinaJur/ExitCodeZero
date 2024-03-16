@@ -11,26 +11,29 @@ jobs:
 
     steps:
       - name: Git clone
-         uses: actions/checkout@v4
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
           
       - name: Install JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
           java-version: '17'
+          distribution: 'adopt'
+
+      - name: Cache maven
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('./pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
       - name: Build & Install
         run: mvn -B install -D skipTests --no-transfer-progress
 
       - name: save maven version
         run: echo "MAVEN_HOME=$(mvn -version | head -1)" >> $GITHUB_ENV
-
-      - name: Сache maven
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
 
       - name: Maven test
         run: mvn -B package --file pom.xml

@@ -36,8 +36,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2.15.1   
       if: always()
       with:
         files: target/surefire-reports/*.xml
@@ -50,11 +50,12 @@ jobs:
         path: |
           screenshots
           **/surefire-reports/emailable-report.html
-          
-    - name: Create test report
-      uses: dorny/test-reporter@v1.4.3
+
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.8.0
       if: success() || failure()
       with:
-        name: Test Execution Report
-        path: target/surefire-reports/TEST-*.xml
-        reporter: java-junit
+          name: Test Execution Report
+          path: target/surefire-reports/TEST-*.xml
+          reporter: java-junit
+            

@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -25,7 +26,13 @@ public class ToSentenceCaseTest {
     @Test
     public void testCapitalizeMyTitle_toSentenceCase() throws InterruptedException {
         final String expectedResult = new ToSentenceCase().toSentenceCase(TEST_SENTENCE);
-        WebDriver driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+
+        WebDriver driver = new ChromeDriver(options);
 
         //Act
         driver.get(URL);
@@ -34,7 +41,6 @@ public class ToSentenceCaseTest {
 
         //css
         //        textarea#main_input
-
 
         //3 ways to find element by addresses
         driver.findElement(By.name("main_input"));
@@ -55,8 +61,6 @@ public class ToSentenceCaseTest {
         String actualResult = textarea.getAttribute("value");
 
         Assert.assertEquals(actualResult, expectedResult);
-
-
 
         driver.quit();
 //        driver.close(); //- не закрывает connection

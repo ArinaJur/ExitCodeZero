@@ -29,12 +29,20 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('./pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-          
+
+    - name: Install Google Chrome
+      run: |
+       chmod +x ./scripts/InstallChrome.sh
+        ./scripts/InstallChrome.sh
+        
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
-    - name: Maven test
-      run: mvn test
+      
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: target/surefire-reports/*.xml
 
     - name: Attach screenshots and reports
       uses: actions/upload-artifact@v3

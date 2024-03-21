@@ -4,7 +4,7 @@ package sprint3;//Написать метод, который принимает
 import java.util.HashMap;
 
 
-public class Unique_Letters {
+public class UniqueLetters {
     public static int uniqueLetters(String word) {
         String word2 = word.trim().toLowerCase();
         String word3 = "";

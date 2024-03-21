@@ -34,7 +34,7 @@ jobs:
       uses: browser-actions/setup-chrome@v1.5.0
             
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean test
       
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2.15.1   

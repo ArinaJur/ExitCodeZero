@@ -17,8 +17,6 @@ public class ToSentenceCaseTest {
     //    //- Нажать на кнопку Sentence case
     //    //- Считать результат преобразования
     //    //- Подтвердить, что результат работы программы соответствует expectedResult
-    //
-    //    public String toSentenceCase(String sentence) {
 
     private static final String URL = "https://capitalizemytitle.com/";
     private static final String TEST_SENTENCE = "мама мыла Раму.";

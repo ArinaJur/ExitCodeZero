@@ -24,6 +24,7 @@ public class CountTextSpacesTest {
         int expectedResult = new CountTextSpaces().toCountSpaces(TEST_TEXT);
 
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
         driver.get(URL);
         driver.findElement(By.id("input")).sendKeys(TEST_TEXT);

@@ -1,14 +1,18 @@
+package sprint3;
+
 import java.util.Arrays;
 
 public class LetterTo0 {
-    //Написать метод, который принимает на вход слово, например, “абракадабра”.
+    //Task 9
+    // Написать метод, который принимает на вход слово, например, “абракадабра”.
     // Метод меняет максимально встречающуюся букву в слове на цифру 0
     // (должно получиться “0бр0к0д0бр0”).
     // Если в слове одинаковое количество разных букв, то необходимо заменить
     // на 0 ту букву, которая встречается в слове первой (“куку” -> “0у0у”)
 
 
-    public static String letterTo0(String word) {
+    public String letterTo0(String word) {
+        word = word.trim().toLowerCase();
         char[] letters = word.toCharArray();
         Arrays.sort(letters);
 

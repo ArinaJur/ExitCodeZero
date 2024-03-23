@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static sprint3.CounterCyrillicCharacters.countCyrillicCharacters;
 import static sprint3.CounterLocators.BUTTON_SUBMIT;
 import static sprint3.CounterLocators.CSS_SELECTOR;
 import static sprint3.CounterLocators.INPUT_XPATH;
@@ -40,7 +41,7 @@ public class CounterSeleniumTest {
               .maximize();
 
         String expected = String.valueOf(30);
-        int actualCount = Counter.countCyrillicCharacters(data);
+        int actualCount =countCyrillicCharacters(data);
 
         sendText(data, INPUT_XPATH);
         clickButton(BUTTON_SUBMIT);

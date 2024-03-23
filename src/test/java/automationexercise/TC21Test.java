@@ -18,11 +18,11 @@ public class TC21Test {
 
         driver.get(BASE_URL);
 
-        if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
-            System.out.println("Advertisement");
-            Thread.sleep(70000);
-            //you should close the Advertisement manually
-        }
+//        if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
+//            System.out.println("Advertisement");
+//            Thread.sleep(70000);
+//            //you should close the Advertisement manually
+//        }
 
         Thread.sleep(2000);
 
@@ -31,7 +31,7 @@ public class TC21Test {
 
         if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
             System.out.println("Advertisement");
-            Thread.sleep(70000);
+            Thread.sleep(7000);
             //you should close the Advertisement manually
         }
 

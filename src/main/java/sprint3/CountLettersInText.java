@@ -9,7 +9,6 @@ public class CountLettersInText {
         if (text == null || letter == 0) {
             return -1;
         }
-
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
             if (text.toLowerCase().charAt(i) == letter) {

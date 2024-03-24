@@ -32,7 +32,6 @@ public class CountLettersInTextTest {
 //        String actualResult = driver.findElement(By.cssSelector("tbody tr td:nth-child(2)")).getText();
         int actualResult = Integer.parseInt(driver.findElement(By.xpath("//tbody/tr/td[2]")).getText());
 
-
         System.out.println(actualResult);
 
         Assert.assertEquals(actualResult, expectedResult);

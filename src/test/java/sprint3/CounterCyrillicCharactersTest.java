@@ -4,6 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sprint3.provider.CounterDataProvider;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static sprint3.CounterCyrillicCharacters.countCyrillicCharacters;
 import static sprint3.CounterLetters.countUniqueLetters;
 
@@ -59,13 +62,14 @@ public class CounterCyrillicCharactersTest {
         if (text == null){
             return -1;
         }
+
+        Matcher matcher = Pattern.compile("[а-яА-Я]").matcher(text);
+
         int count = 0;
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (ch >= 1040 && ch <= 1103) {
-                count++;
-            }
+        while (matcher.find()) {
+            count++;
         }
+
         return count;
     }
 }

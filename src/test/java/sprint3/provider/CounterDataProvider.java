@@ -8,9 +8,37 @@ public class CounterDataProvider {
 
     @DataProvider(name = "negativeTestData")
     public Object[][] negativeTestData() {
+
         return new Object[][] {
                 {null, -1},
+                {" ", 0},
                 {"", 0}
+        };
+    }
+
+    @DataProvider(name = "textData")
+    public Object[][] textData() {
+
+        return new Object[][] {
+                {"Привет, мир!", 9},
+                {"Как дела?", 7},
+                {"Hello, world!", 0},
+                {"1234567890", 0},
+                {"Тестирование", 12},
+                {"АаЙйЯя", 6},
+                {"azAz", 0},
+        };
+    }
+
+    @DataProvider(name = "happyPathUniqueWords")
+    public Object[][] wordsDataProvider() {
+
+        return new Object[][] {
+                {"абракадабра", 5},
+                {"hello", 4},
+                {"banana", 3},
+                {"programming", 8},
+                {"unique", 5}
         };
     }
 

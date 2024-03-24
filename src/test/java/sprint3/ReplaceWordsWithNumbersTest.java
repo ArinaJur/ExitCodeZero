@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ReplaceWordsWithNumbersTest {
 
-    private static final String BASE_URL = "https://www.google.com/";
+    private static final String URL = "https://www.google.com/";
     final String inputText = "Упади семь раз и восемь раз поднимись.";
     final String resultText = "Упади 7 раз и 8 раз поднимись";
 
@@ -34,7 +34,7 @@ public class ReplaceWordsWithNumbersTest {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(BASE_URL);
+        driver.get(URL);
 
         WebElement searchArea = driver.findElement(By.xpath("//textarea[@title='Search']"));
         searchArea.click();

@@ -1,7 +1,3 @@
-
-package automationexercise;public class TC21Test {
-}
-
 package automationexercise;
 
 import org.openqa.selenium.By;

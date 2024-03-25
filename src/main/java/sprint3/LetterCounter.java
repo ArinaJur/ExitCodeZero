@@ -18,6 +18,7 @@ public class LetterCounter {
 
         try {
             String textToLowerCase = text.toLowerCase();
+            char lt = Character.toLowerCase(letter);
 
             for (int i = 0; i < textToLowerCase.length(); i++) {
                 if (textToLowerCase.charAt(i) == letter) {

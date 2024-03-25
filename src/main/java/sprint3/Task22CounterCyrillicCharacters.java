@@ -1,6 +1,6 @@
 package sprint3;
 
-public class CounterCyrillicCharacters {
+public class Task22CounterCyrillicCharacters {
 
     /**
      * 22

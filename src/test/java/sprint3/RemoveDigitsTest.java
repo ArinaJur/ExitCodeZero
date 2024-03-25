@@ -14,6 +14,7 @@ public class RemoveDigitsTest {
     private WebDriver driver;
     private static final String URL = "https://www.textfixer.com/tools/remove-numbers-from-text.php";
     private static final String TEST_SENTENCE = "неCодержит5цифр";
+    private static final String TEST_SENTENCE1 = "45645643456";
 
     @BeforeClass
     public void setUp() {
@@ -35,6 +36,23 @@ public class RemoveDigitsTest {
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='newText']"));
         textarea.sendKeys(TEST_SENTENCE);
+
+        WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
+        removeNumbersBtn.click();
+
+        String actualResult = textarea.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+    @Test
+    public void testRemoveNumbersFromTextContainsOnlyNumbers() {
+        Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
+        final String expectedResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE1);
+
+        openPage(URL);
+
+        WebElement textarea = driver.findElement(By.xpath("//textarea[@id='newText']"));
+        textarea.sendKeys(TEST_SENTENCE1);
 
         WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
         removeNumbersBtn.click();

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static sprint3.CounterLetters.countUniqueLetters;
 
-public class CounterLettersSeleniumTest {
+public class Task14CounterLettersSeleniumTest {
 
     private WebDriver driver;
     public static final String word = "абракадабра";

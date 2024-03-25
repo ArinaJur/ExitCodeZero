@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class RemoveDigitsTest {
     private WebDriver driver;
     private static final String URL = "https://www.textfixer.com/tools/remove-numbers-from-text.php";
-    private static final String TEST_SENTENCE = "неСодержит5цифр";
+    private static final String TEST_SENTENCE = "неCодержит5цифр";
 
     @BeforeClass
     public void setUp() {

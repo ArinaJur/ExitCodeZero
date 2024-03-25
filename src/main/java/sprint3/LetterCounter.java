@@ -20,16 +20,23 @@ public class LetterCounter {
             String textToLowerCase = text.toLowerCase();
             char lt = Character.toLowerCase(letter);
 
+            if (Character.isDigit(letter)) {
+                throw new IllegalArgumentException("The provided character is a number, not a letter.");
+            }
+
             for (int i = 0; i < textToLowerCase.length(); i++) {
-                if (textToLowerCase.charAt(i) == letter) {
+                if (textToLowerCase.charAt(i) == lt) {
                     count++;
                 }
             }
+
         }catch (NullPointerException e){
             System.err.println("The provided text return Null");
+
+        }catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
         }
+
         return count;
     }
 }
-
-

@@ -28,7 +28,8 @@ public class RemoveDigitsTest {
 
     @Test
     public void testRemoveNumbersFromText() {
-        final String expectedResult = "неСодержитцифр"; // call method .toStringFromLetterNumberToLetter()
+        Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
+        final String expectedResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE);
 
         openPage(URL);
 

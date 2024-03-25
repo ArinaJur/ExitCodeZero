@@ -13,9 +13,7 @@ public class CountSymbols {
         int count = 0;
 
         for (int i = 0; i < arrayText.length; i++) {
-            if (isLetter(arrayText[i]) || isDigit(arrayText[i]) || arrayText[i].equals(" ")) {
-                continue;
-            } else {
+            if (!isLetter(arrayText[i]) && !isDigit(arrayText[i]) && !isWightSpace(arrayText[i])) {
                 count++;
             }
         }
@@ -39,6 +37,17 @@ public class CountSymbols {
 
         for (int i = 0; i < charArray.length; i++) {
             if (!Character.isDigit(charArray[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isWightSpace(String text) {
+        char[] charArray = text.toCharArray();
+
+        for (int i = 0; i < charArray.length; i++) {
+            if (!Character.isWhitespace(charArray[i])) {
                 return false;
             }
         }

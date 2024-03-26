@@ -16,7 +16,15 @@ public class Task16ToAlphabeticSrt {
 
     public String toStringFromLetterNumberToLetter(String stringText) {
 
-        String newStringText = stringText.trim();
+        String newStringText;
+
+        if (stringText.equals(null)) {
+            System.out.println("Text is null");
+            newStringText = "";
+        }
+
+        newStringText = stringText.trim();
+
         String letterText = "";
         String number = "0123456789";
 
@@ -27,8 +35,12 @@ public class Task16ToAlphabeticSrt {
 
         }
 
+        if (letterText.isEmpty()) {
+            System.out.println("Text is empty");
+        } else {
+            System.out.println(letterText);
+        }
+
         return letterText;
     }
-
-
 }

@@ -34,7 +34,7 @@ public class ParaBankTest {
         ssn.sendKeys("123-456-7890");
 
         WebElement user = driver.findElement(By.xpath("//input[@id='customer.username']"));
-        user.sendKeys("admin3");
+        user.sendKeys("admin4");
         WebElement passcode = driver.findElement(By.xpath("//input[@id='customer.password']"));
         passcode.sendKeys("admin");
         WebElement passcode2 = driver.findElement(By.xpath("//input[@id='repeatedPassword']"));
@@ -54,8 +54,7 @@ public class ParaBankTest {
 
 
 
-        //WebElement name = driver.findElement(By.xpath("//input[@type='text']"));
-        //name.sendKeys();
+
 
     }
 }

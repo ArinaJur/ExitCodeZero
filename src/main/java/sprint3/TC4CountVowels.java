@@ -13,27 +13,27 @@ package sprint3;
 //подтвердить, что заголовок статьи содержит 7 гласных букв.
 
 
-public class CountVowels {
+public class TC4CountVowels {
     public static String theNumberOfVowels(String INPUT_TEXT) {
+        String text = INPUT_TEXT.toLowerCase().trim();
+        char[] array = text.toCharArray();
+        Integer counter = 0;
 
+        for (int i = 0; i < array.length; i++) {
 
-        for (int i = 0; i < INPUT_TEXT.length(); i++) {
-            Integer counter = 0;
-            if (INPUT_TEXT.charAt(i) == 'а' || INPUT_TEXT.charAt(i) == 'е'
-                    || INPUT_TEXT.charAt(i) == 'ё'
-                    || INPUT_TEXT.charAt(i) == 'и'
-                    || INPUT_TEXT.charAt(i) == 'о'
-                    || INPUT_TEXT.charAt(i) == 'э'
-                    || INPUT_TEXT.charAt(i) == 'ы'
-                    || INPUT_TEXT.charAt(i) == 'ю'
-                    || INPUT_TEXT.charAt(i) == 'у'
-                    || INPUT_TEXT.charAt(i) == 'я') {
+            if (array[i] == 'а' || array[i] == 'е'
+                    || array[i] == 'ё'
+                    || array[i] == 'и'
+                    || array[i] == 'о'
+                    || array[i] == 'э'
+                    || array[i] == 'ы'
+                    || array[i] == 'ю'
+                    || array[i] == 'у'
+                    || array[i] == 'я') {
                 counter++;
+
             }
-            String counter1 = Integer.toString(counter);
-
-            return counter1;
-
-        } return "You don't solve the problem";
+        }
+        return counter.toString();
     }
 }

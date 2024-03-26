@@ -6,7 +6,7 @@ import sprint3.provider.CounterDataProvider;
 
 import static sprint3.CounterLetters.countUniqueLetters;
 
-public class CounterLettersTest {
+public class Task14CounterLettersTest {
     @Test
     public void testCountUniqueLettersHappyPath() {
         String word = "абракадабра";
@@ -102,6 +102,4 @@ public class CounterLettersTest {
 
         Assert.assertEquals(actualResult, expectedResult);
     }
-
-
 }

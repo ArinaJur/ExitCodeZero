@@ -7,7 +7,7 @@ import sprint3.provider.CounterDataProvider;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static sprint3.CounterCyrillicCharacters.countCyrillicCharacters;
+import static sprint3.Task22CounterCyrillicCharacters.countCyrillicCharacters;
 import static sprint3.CounterLetters.countUniqueLetters;
 
 public class CounterCyrillicCharactersTest {

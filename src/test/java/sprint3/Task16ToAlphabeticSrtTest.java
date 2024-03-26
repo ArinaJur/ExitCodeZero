@@ -10,11 +10,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-public class RemoveDigitsTest {
+public class Task16ToAlphabeticSrtTest {
     private WebDriver driver;
     private static final String URL = "https://www.textfixer.com/tools/remove-numbers-from-text.php";
     private static final String TEST_SENTENCE = "неCодержит5цифр";
     private static final String TEST_SENTENCE1 = "45645643456";
+//    private static final String TEST_SENTENCE1 = " ";
+//    private static final String TEST_SENTENCE1 = "";
+//    private static final String TEST_SENTENCE1 = " sdf23d@#$f5 ";
 
     @BeforeClass
     public void setUp() {

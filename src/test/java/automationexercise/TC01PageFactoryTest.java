@@ -16,6 +16,8 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
+import static automationexercise.Helper.BASE_URL;
+
 /**
  * 1. Launch browser
  * 2. Navigate to url '<a href="http://automationexercise.com"></a>'
@@ -36,26 +38,12 @@ import java.util.Random;
  * 17. Click 'Delete Account' button
  * 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
  * */
-public class TC01PageFactoryTest {
-    private WebDriver driver;
-    private static final String url = "https://automationexercise.com";
-
-    @BeforeClass
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-        driver.get(url);
-    }
-
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
+public class TC01PageFactoryTest extends BaseTest {
 
     @Test
     public void testLogin() {
+        getDriver().manage().window().maximize();
+        getDriver().get(BASE_URL);
         login();
         signup();
         create();
@@ -63,10 +51,10 @@ public class TC01PageFactoryTest {
     }
 
     private void login() {
-        MainPage mainPage = new MainPage(driver);
+        MainPage mainPage = new MainPage(getDriver());
         mainPage.clickLoginLink();
         String expectedResult = "New User Signup!";
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.verifySignupHeaderText();
         loginPage.verifyText(expectedResult);
         loginPage.enterName("Alice");
@@ -77,7 +65,7 @@ public class TC01PageFactoryTest {
 
     private void signup() {
         String expectedResult = "ENTER ACCOUNT INFORMATION";
-        SignupPage signupPage = new SignupPage(driver);
+        SignupPage signupPage = new SignupPage(getDriver());
         signupPage.verifyAccountInformationHeader();
         signupPage.verifyAccountText(expectedResult);
         signupPage.clickNewsletter();
@@ -97,7 +85,7 @@ public class TC01PageFactoryTest {
     private void create() {
         String expectedResult = "Alice";
         String expected = "ACCOUNT CREATED!";
-        AccountCreatedPage create = new AccountCreatedPage(driver);
+        AccountCreatedPage create = new AccountCreatedPage(getDriver());
         create.verifyAccountCreated(expected);
         create.clickContinue();
         skipAdv();
@@ -106,7 +94,7 @@ public class TC01PageFactoryTest {
 
     private void delete() {
         String expected = "ACCOUNT DELETED!";
-        DeleteAccountPage delete = new DeleteAccountPage(driver);
+        DeleteAccountPage delete = new DeleteAccountPage(getDriver());
         delete.clickDeleteLink();
         delete.verifyAccountDeleted(expected);
         delete.clickContinueLink();
@@ -115,7 +103,7 @@ public class TC01PageFactoryTest {
     private void skipAdv() {
         try {
             Thread.sleep(2000);
-            Actions actions = new Actions(driver);
+            Actions actions = new Actions(getDriver());
             actions.moveByOffset(100, 200).click().perform();
             Thread.sleep(2000);
         } catch (InterruptedException e){

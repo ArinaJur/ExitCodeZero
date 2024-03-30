@@ -12,7 +12,7 @@
 package sprint3;
 
 public class Task16ToAlphabeticString {
-    public String extractNumbers(String text){
+    public static String extractNumbers(String text){
         if(text == null || text.isEmpty()){
             return "Text is null";
         }

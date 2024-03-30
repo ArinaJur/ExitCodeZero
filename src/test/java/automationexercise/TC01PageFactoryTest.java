@@ -1,17 +1,10 @@
 package automationexercise;
 
 import automationexercise.model.AccountCreatedPage;
-import automationexercise.model.SignupPage;
 import automationexercise.model.DeleteAccountPage;
 import automationexercise.model.LoginPage;
 import automationexercise.model.MainPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import automationexercise.model.SignupPage;
 import org.testng.annotations.Test;
 
 import java.util.Random;
@@ -88,7 +81,7 @@ public class TC01PageFactoryTest extends BaseTest {
         AccountCreatedPage create = new AccountCreatedPage(getDriver());
         create.verifyAccountCreated(expected);
         create.clickContinue();
-        skipAdv();
+        Helper.skipAd(getDriver());
         create.verifyAccountLoginName(expectedResult);
     }
 
@@ -98,16 +91,5 @@ public class TC01PageFactoryTest extends BaseTest {
         delete.clickDeleteLink();
         delete.verifyAccountDeleted(expected);
         delete.clickContinueLink();
-    }
-
-    private void skipAdv() {
-        try {
-            Thread.sleep(2000);
-            Actions actions = new Actions(getDriver());
-            actions.moveByOffset(100, 200).click().perform();
-            Thread.sleep(2000);
-        } catch (InterruptedException e){
-            Thread.currentThread().interrupt();
-        }
     }
 }

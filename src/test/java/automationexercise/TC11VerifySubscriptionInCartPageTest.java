@@ -1,7 +1,6 @@
 package automationexercise;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -33,8 +32,8 @@ public class TC11VerifySubscriptionInCartPageTest
         getDriver().findElement(By.xpath("//a[contains(text(), 'Cart')]")).click();
 
         Assert.assertEquals(getDriver().getCurrentUrl(), BASE_URL + "/view_cart");
-        scrollToFooter();
-
+        Helper.scrollToFooter(getDriver());
+        Helper.delay(1000);
         WebElement subscription = getDriver().findElement(By.xpath("//h2[contains(text(), 'Subscription')]"));
         Helper.verify(subscription, "SUBSCRIPTION");
 
@@ -43,10 +42,5 @@ public class TC11VerifySubscriptionInCartPageTest
 
         WebElement successMessage = getDriver().findElement(By.id("success-subscribe"));
         Helper.verify(successMessage, "You have been successfully subscribed!");
-    }
-
-    private void scrollToFooter() {
-        ((JavascriptExecutor)getDriver()).executeScript(
-                "window.scrollTo(0, document.body.scrollHeight)");
     }
 }

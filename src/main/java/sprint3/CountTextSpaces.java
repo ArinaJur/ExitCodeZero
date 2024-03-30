@@ -10,7 +10,7 @@
 //подтвердить, что в тексте содержится 6 пробелов
 package sprint3;
 
-public class Task20CountTextSpaces {
+public class CountTextSpaces {
 
     public int toCountSpaces(String text){
 

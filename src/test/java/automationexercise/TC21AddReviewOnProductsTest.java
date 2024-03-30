@@ -1,11 +1,15 @@
 package automationexercise;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Random;
 
 import static automationexercise.Helper.BASE_URL;
 
@@ -25,19 +29,27 @@ public class TC21AddReviewOnProductsTest extends BaseTest {
 
     @Test(invocationCount = 1)
     public void testAddReviewOnProduct() {
+        getDriver().manage().window().maximize();
+        getDriver().get(BASE_URL);
+
         getDriver().findElement(By.xpath("//a[@href='/products']")).click();
 
-        Helper.skipAd(new Actions(getDriver()));
+        Helper.skipAd(getDriver());
 
         Assert.assertEquals(getDriver().getCurrentUrl(), BASE_URL + "/products");
 
         By products = By.xpath("//h2[contains(@class, 'title text-center') and text()='All Products']");
         Helper.verify(getDriver().findElement(products), "ALL PRODUCTS");
 
-        scrollOnce();
+        List<WebElement> cards = getDriver().findElements(By.xpath("//a[text()='View Product']"));
 
-        getDriver().findElements(By.xpath("//a[contains(text(), 'View Product')]")).get(0).click();
+        int randomIndex = new Random().nextInt(cards.size());
+        System.out.println(randomIndex);
+        WebElement randomCard = cards.get(randomIndex);
+        Helper.scrollToIntoView(getDriver(), randomCard);
+        randomCard.click();
 
+        Helper.skipAd(getDriver());
         By reviews = By.xpath("//li[@class='active']//a[@href='#reviews']");
         Helper.verify(getDriver().findElement(reviews), "WRITE YOUR REVIEW");
 
@@ -45,16 +57,11 @@ public class TC21AddReviewOnProductsTest extends BaseTest {
         enterTextById("email", "qwerty@gmail.com");
         enterTextById("review", "This is a test review.");
 
-        scrollOnce();
+        Helper.scrollOnce(getDriver());
         getDriver().findElement(By.id("button-review")).click();
 
         By selector = By.cssSelector("#review-section .alert-success.alert span");
         Helper.verify(getDriver().findElement(selector), "Thank you for your review.");
-    }
-
-    private void scrollOnce() {
-        ((JavascriptExecutor) getDriver())
-                .executeScript("window.scrollBy(0, 500);");
     }
 
     private void enterTextById(String id, String text) {

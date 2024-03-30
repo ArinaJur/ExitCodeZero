@@ -1,6 +1,6 @@
 package sprint3;
 
-public class CountTextSpaces {
+public class Task20CountTextSpaces {
     //Написать метод, который принимает на вход текст  и возвращает количество пробелов
 
     //Для проверки результата

@@ -12,7 +12,7 @@ https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%BF%D1%80%D0%B8%D
 - подтвердить, что в заголовке содержится 3 буквы “О”
 
  */
-public class LetterCounter {
+public class Task1LetterCounter {
     public static int countLetter(String text, char letter){
         int count = 0;
 

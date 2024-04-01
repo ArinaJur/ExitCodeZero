@@ -39,8 +39,7 @@ public class ConflictsSolvingTest extends BaseTest {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        Thread.sleep(2000);
-        driver.get(BASE_URL);
+
 
         Thread.sleep(1000);
 

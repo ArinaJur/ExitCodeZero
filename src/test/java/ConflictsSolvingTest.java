@@ -14,11 +14,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
 
+import java.lang.reflect.Method;
+
 public class ConflictsSolvingTest extends BaseTest {
+
+
+    private WebDriver driver;
+
+    @BeforeMethod
+    protected void beforeMethod(Method method) {
+        driver = new ChromeDriver();
+    }
+
+    @AfterMethod
+    protected void afterMethod(Method method) {
+        driver.quit();
+    }
+
+    protected WebDriver getDriver() {
+        return driver;
+    }
 
     private static final String BASE_URL = "https://involta.ru/tools/length-chars/";
     private static final String INPUT_TEXT = "Это мой Текст из 3 слов и 11 букв";

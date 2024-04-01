@@ -1,5 +1,6 @@
 package automationexercise;
 
+import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ import static automationexercise.Helper.BASE_URL;
  * 6. Click on arrow at bottom right side to move upward
  * 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
  */
-public class TC25ScrollDownAndUpTest extends BaseTest{
+public class TC25ScrollDownAndUpTest extends BaseTest {
 
     @Test
     void testVerifyScrollUpUsingArrowButtonAndScrollDown(){

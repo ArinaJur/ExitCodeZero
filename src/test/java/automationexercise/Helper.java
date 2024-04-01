@@ -9,11 +9,9 @@ import org.testng.Assert;
 public class Helper {
     public static final String BASE_URL = "https://automationexercise.com";
 
-    public static void skipAd(
-            WebDriver driver) {
-        delay(1000);
+    public static void skipAd(WebDriver driver) {
         new Actions(driver).moveByOffset(50, 50).click().perform();
-        delay(2000);
+        delay(1000);
     }
 
     public static void verify(

@@ -32,10 +32,8 @@ public class ConflictsSolvingTest extends BaseTest {
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-
         String jjj = "";
         int aaa = 0;
-
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();

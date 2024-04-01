@@ -12,35 +12,39 @@
 
 package sprint3;
 
-public class Task16ToAlphabeticSrt {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-    public static String toStringFromLetterNumberToLetter(String stringText) {
+public class Task16ToAlphabeticStringTest {
 
-        String newStringText;
 
-        if (stringText.equals(null)) {
-            System.out.println("Text is null");
-            newStringText = "";
-        }
 
-        newStringText = stringText.trim();
+    @Test
+    public void  toText () {
+        WebDriver driver = new ChromeDriver();
 
-        String letterText = "";
-        String number = "0123456789";
+//        String data = "неСодержит5цифр";
+        String data = "неСодержит 5цифр ";
 
-        for (int i = 0; i < newStringText.length(); i++) {
-            if (!number.contains(String.valueOf(newStringText.charAt(i)))) {
-                letterText += String.valueOf(newStringText.charAt(i));
-            }
+        String expectedResult = Task16ToAlphabeticSrt.toStringFromLetterNumberToLetter(data);
 
-        }
+                driver.get("https://www.textfixer.com/tools/remove-numbers-from-text.php");
+        WebElement text = driver.findElement(By.xpath("//textarea[@id='newText']"));
+        text.sendKeys("неСодержит5цифр");
+        driver.findElement(By.xpath("//input[@value='Remove Numbers']")).click();
 
-        if (letterText.isEmpty()) {
-            System.out.println("Text is empty");
-        } else {
-            System.out.println(letterText);
-        }
+        String actualResult = text.getAttribute("value");
 
-        return letterText;
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+
     }
+
+
+
 }

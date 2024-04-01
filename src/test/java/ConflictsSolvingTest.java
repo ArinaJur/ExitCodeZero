@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
 
 public class ConflictsSolvingTest {

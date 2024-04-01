@@ -49,7 +49,7 @@ public class ConflictsSolvingTest extends BaseTest {
         int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
 
         WebDriver driver = new ChromeDriver();
-        driver.get(URL);
+        driver.get(BASE_URL);
 
         driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
         driver.findElement(By.xpath("//button[@type='submit']")).click();

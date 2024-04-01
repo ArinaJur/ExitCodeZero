@@ -8,6 +8,7 @@
  * подтвердить, что в тексте содержится 3 цифры
  */
 
+import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sprint3.Task21CountNumbersInText;
 
-public class ConflictsSolvingTest {
+public class ConflictsSolvingTest extends BaseTest {
 
     private static final String URL = "https://involta.ru/tools/length-chars/";
     private static final String INPUT_TEXT = "Это мой Текст из 3 слов и 11 букв";
@@ -25,9 +26,7 @@ public class ConflictsSolvingTest {
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-        String jjj = "";
-
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = getDriver();
         driver.manage().window().maximize();
         driver.get(URL);
         Thread.sleep(1000);
@@ -41,6 +40,5 @@ public class ConflictsSolvingTest {
 
         Assert.assertEquals(actualResult, numbersInText);
 
-        driver.quit();
     }
 }

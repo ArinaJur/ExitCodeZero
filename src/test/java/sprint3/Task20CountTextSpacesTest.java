@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CountTextSpacesTest {
+public class Task20CountTextSpacesTest {
     //Для проверки результата
     //подготовить expected результат с помощью алгоритма другого человека
     //зайти на сайт https://involta.ru/tools/length-chars/

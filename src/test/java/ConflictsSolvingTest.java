@@ -26,10 +26,12 @@ public class ConflictsSolvingTest {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
         String jjj = "";
+        int aaa = 0;
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(URL);
+
         Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));

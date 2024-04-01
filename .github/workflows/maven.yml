@@ -61,4 +61,3 @@ jobs:
         path: target/surefire-reports/TEST-*.xml
         reporter: java-junit
 
-   

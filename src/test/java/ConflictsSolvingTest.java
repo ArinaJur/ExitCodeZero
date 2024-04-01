@@ -11,6 +11,7 @@ import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sprint3.CountSymbols;
@@ -30,7 +31,7 @@ public class ConflictsSolvingTest extends BaseTest {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(URL);
+        driver.get(BASE_URL);
 
         Thread.sleep(1000);
 

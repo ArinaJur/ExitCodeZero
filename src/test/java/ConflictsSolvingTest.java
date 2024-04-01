@@ -39,8 +39,8 @@ public class ConflictsSolvingTest extends BaseTest {
         int actualResult = Integer.parseInt(text);
 
         Assert.assertEquals(actualResult, numbersInText);
-
     }
+    
     @Test
     public void testCountSymbols() {
 

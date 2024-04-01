@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
@@ -28,12 +30,19 @@ public class ConflictsSolvingTest extends BaseTest {
 
     @Test
     public void testCountNumbersInText() throws InterruptedException {
-        int numbersInText = new Task21Coungit tNumbersInText().countNumbersInText(INPUT_TEXT);
+        int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-        WebDriver driver = getDriver();
+
+        String jjj = "";
+        int aaa = 0;
+
+
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Thread.sleep(2000);
         driver.get(BASE_URL);
+
+        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);
@@ -65,7 +74,7 @@ public class ConflictsSolvingTest extends BaseTest {
         driver.quit();
     }
     @Test
-    public void testCountSymbols() {
+    public void testCountSymbols1() {
 
         int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
 

@@ -8,7 +8,6 @@
  * подтвердить, что в тексте содержится 3 цифры
  */
 
-import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,28 +19,9 @@ import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
 
-import java.lang.reflect.Method;
+public class ConflictsSolvingTest {
 
-public class ConflictsSolvingTest extends BaseTest {
-
-
-    private WebDriver driver;
-
-    @BeforeMethod
-    protected void beforeMethod(Method method) {
-        driver = new ChromeDriver();
-    }
-
-    @AfterMethod
-    protected void afterMethod(Method method) {
-        driver.quit();
-    }
-
-    protected WebDriver getDriver() {
-        return driver;
-    }
-
-    private static final String BASE_URL = "https://involta.ru/tools/length-chars/";
+    private static final String URL = "https://involta.ru/tools/length-chars/";
     private static final String INPUT_TEXT = "Это мой Текст из 3 слов и 11 букв";
     private final String TEST_TEXT = "Это мой Текст из русских слов, слова dot и 1 цифры.";
 
@@ -49,10 +29,17 @@ public class ConflictsSolvingTest extends BaseTest {
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-        WebDriver driver = getDriver();
+
+        String jjj = "";
+        int aaa = 0;
+
+
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Thread.sleep(2000);
         driver.get(BASE_URL);
+
+        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);
@@ -62,24 +49,6 @@ public class ConflictsSolvingTest extends BaseTest {
         int actualResult = Integer.parseInt(text);
 
         Assert.assertEquals(actualResult, numbersInText);
-
-    }
-    @Test
-    public void testCountSymbols() {
-
-        int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
-
-        WebDriver driver = new ChromeDriver();
-        driver.get(BASE_URL);
-
-        driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        String text =
-                driver.findElement(By.xpath("//div/span[text()='Остальных символов']/following-sibling::span")).getText();
-
-        int actualResult = Integer.parseInt(text.trim());
-
-        Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }

@@ -30,8 +30,8 @@ public class ConflictsSolvingTest extends BaseTest {
 
         WebDriver driver = getDriver();
         driver.manage().window().maximize();
-        driver.get(BASE_URL);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
+        driver.get(URL);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);
@@ -42,6 +42,25 @@ public class ConflictsSolvingTest extends BaseTest {
 
         Assert.assertEquals(actualResult, numbersInText);
 
+    }
+    @Test
+    public void testCountSymbols() {
+
+        int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
+
+        WebDriver driver = new ChromeDriver();
+        driver.get(URL);
+
+        driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        String text =
+                driver.findElement(By.xpath("//div/span[text()='Остальных символов']/following-sibling::span")).getText();
+
+        int actualResult = Integer.parseInt(text.trim());
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
     }
     @Test
     public void testCountSymbols() {

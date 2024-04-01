@@ -22,5 +22,6 @@ public class ToSentenceCase {
         newSentence = newSentence.replaceFirst(newSentence.substring(0, 1), firstLetterInUpperCase);
 
         return newSentence;
+
     }
 }

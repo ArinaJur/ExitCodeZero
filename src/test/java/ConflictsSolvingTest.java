@@ -18,6 +18,8 @@ import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
 
+import static sprint3.VowelRemoverTest.URL;
+
 public class ConflictsSolvingTest extends BaseTest {
 
     private static final String BASE_URL = "https://involta.ru/tools/length-chars/";
@@ -26,12 +28,12 @@ public class ConflictsSolvingTest extends BaseTest {
 
     @Test
     public void testCountNumbersInText() throws InterruptedException {
-        int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
+        int numbersInText = new Task21Coungit tNumbersInText().countNumbersInText(INPUT_TEXT);
 
         WebDriver driver = getDriver();
         driver.manage().window().maximize();
         Thread.sleep(2000);
-        driver.get(URL);
+        driver.get(BASE_URL);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);
@@ -68,7 +70,7 @@ public class ConflictsSolvingTest extends BaseTest {
         int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
 
         WebDriver driver = new ChromeDriver();
-        driver.get(URL);
+        driver.get(BASE_URL);
 
         driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
         driver.findElement(By.xpath("//button[@type='submit']")).click();

@@ -9,20 +9,20 @@ import org.testng.annotations.Test;
 public class TC21Test {
 
     private static final String BASE_URL = "http://automationexercise.com";
-    //functional
+
+    //functional, UI, navigation
     @Test
-    public void testAddReviewOneProductHP() throws InterruptedException {
+    public void testAddReviewOnProductHP() throws InterruptedException {
         final String expectedResult = "ALL PRODUCTS";
         WebDriver driver = new ChromeDriver();
 
-        String bjogj = "dvkniov";
-
         driver.get(BASE_URL);
 
-        if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
-            System.out.println("Advertisement");
-            Thread.sleep(7000);
-        }
+//        if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
+//            System.out.println("Advertisement");
+//            Thread.sleep(70000);
+//            //you should close the Advertisement manually
+//        }
 
         Thread.sleep(2000);
 
@@ -31,8 +31,8 @@ public class TC21Test {
 
         if (driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).isDisplayed()) {
             System.out.println("Advertisement");
-            //driver.findElement(By.xpath("//iframe[contains(@style, 'overflow: visible')]")).click();
             Thread.sleep(7000);
+            //you should close the Advertisement manually
         }
 
         String text = driver.findElement(By.xpath("//h2[@class='title text-center']")).getText();
@@ -41,4 +41,5 @@ public class TC21Test {
 
         driver.quit();
     }
+
 }

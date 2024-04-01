@@ -27,13 +27,17 @@ public class ConflictsSolvingTest {
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-        String jjj = "  ";
+
+        String jjj = "";
+        int aaa = 0;
+
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Thread.sleep(2000);
         driver.get(URL);
 
+        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);

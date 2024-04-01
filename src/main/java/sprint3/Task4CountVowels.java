@@ -13,7 +13,7 @@ package sprint3;
 //подтвердить, что заголовок статьи содержит 7 гласных букв.
 
 
-public class TC4CountVowels {
+public class Task4CountVowels {
     public static String theNumberOfVowels(String INPUT_TEXT) {
         String text = INPUT_TEXT.toLowerCase().trim();
         char[] array = text.toCharArray();

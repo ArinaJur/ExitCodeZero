@@ -32,6 +32,7 @@ public class Task1LetterCounter {
             }
 
         }catch (NullPointerException e){
+          
             System.err.println("The provided text return Null");
         }
 

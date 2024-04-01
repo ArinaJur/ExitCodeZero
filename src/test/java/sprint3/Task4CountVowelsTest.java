@@ -6,9 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sprint3.TC4CountVowels;
 
-public class TC4CountVowelsTest {
+public class Task4CountVowelsTest {
 
     private static final String URL = "https://ru.wikipedia.org";
     private static final String INPUT_TEXT = "достопримечательность";
@@ -36,7 +35,7 @@ public class TC4CountVowelsTest {
 
         Thread.sleep(3000);
 
-        String actualResult = TC4CountVowels.theNumberOfVowels(driver.findElement(
+        String actualResult = Task4CountVowels.theNumberOfVowels(driver.findElement(
                 By.xpath("//h1[@id='firstHeading']")).getText());
 
 
@@ -51,7 +50,7 @@ public class TC4CountVowelsTest {
         String INPUT_TEXT = "достопримечательность";
 
         String expectedResult = "7";
-        String actualResult = TC4CountVowels.theNumberOfVowels(INPUT_TEXT);
+        String actualResult = Task4CountVowels.theNumberOfVowels(INPUT_TEXT);
 
         Assert.assertEquals(actualResult, expectedResult);
     }

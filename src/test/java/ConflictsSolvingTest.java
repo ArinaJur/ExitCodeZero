@@ -31,8 +31,8 @@ public class ConflictsSolvingTest {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        Thread.sleep(2000);
         driver.get(URL);
-        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);

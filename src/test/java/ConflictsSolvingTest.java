@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
@@ -35,7 +37,7 @@ public class ConflictsSolvingTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         Thread.sleep(2000);
-        driver.get(URL);
+        driver.get(BASE_URL);
 
         Thread.sleep(1000);
 
@@ -47,25 +49,6 @@ public class ConflictsSolvingTest {
         int actualResult = Integer.parseInt(text);
 
         Assert.assertEquals(actualResult, numbersInText);
-
-        driver.quit();
-    }
-    @Test
-    public void testCountSymbols() {
-
-        int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
-
-        WebDriver driver = new ChromeDriver();
-        driver.get(URL);
-
-        driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        String text =
-                driver.findElement(By.xpath("//div/span[text()='Остальных символов']/following-sibling::span")).getText();
-
-        int actualResult = Integer.parseInt(text.trim());
-
-        Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }

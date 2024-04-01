@@ -12,7 +12,7 @@ https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%BF%D1%80%D0%B8%D
 - подтвердить, что в заголовке содержится 3 буквы “О”
 
  */
-public class LetterCounter {
+public class Task1LetterCounter {
     public static int countLetter(String text, char letter){
         int count = 0;
 
@@ -20,21 +20,20 @@ public class LetterCounter {
             String textToLowerCase = text.toLowerCase();
             char lt = Character.toLowerCase(letter);
 
-            if (Character.isDigit(letter)) {
-                throw new IllegalArgumentException("The provided character is a number, not a letter.");
-            }
+            if (Character.isLetter(letter)) {
 
-            for (int i = 0; i < textToLowerCase.length(); i++) {
-                if (textToLowerCase.charAt(i) == lt) {
-                    count++;
+                for (int i = 0; i < textToLowerCase.length(); i++) {
+                    if (textToLowerCase.charAt(i) == lt) {
+                        count++;
+                    }
                 }
+            }else {
+                count = -1;
             }
 
         }catch (NullPointerException e){
+          
             System.err.println("The provided text return Null");
-
-        }catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
         }
 
         return count;

@@ -3,6 +3,8 @@ package automationexercise.model;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import static automationexercise.Helper.BASE_URL;
+
 public abstract class BasePage {
 
     protected WebDriver driver;

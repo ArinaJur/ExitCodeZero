@@ -23,7 +23,7 @@ import java.util.List;
  * то получится фраза “Упади 7 раз и 8 раз поднимись.”
  */
 
-public class ReplaceWordsWithNumbersTest {
+public class Task10ReplaceWordsWithNumbersTest {
 
     private static final String URL = "https://www.google.com/";
     final String inputText = "Упади семь раз и восемь раз поднимись.";
@@ -65,7 +65,7 @@ public class ReplaceWordsWithNumbersTest {
         String actualResult = "";
         if (startIndex != -1) {
             actualResult = actualText.substring(startIndex, startIndex + text.length());
-            actualResult = new ReplaceWordsWithNumbers().replaceWordsWithNumbers(actualResult);
+            actualResult = new Task10ReplaceWordsWithNumbers().replaceWordsWithNumbers(actualResult);
         } else {
             actualResult = actualText;
         }

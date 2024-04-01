@@ -9,38 +9,13 @@
 //  - нажать на кнопку Remove numbers
 //  - считать полученный результат
 //  - подтвердить, что преобразованное предложение не содержит цифр
-
 package sprint3;
 
-public class Task16ToAlphabeticSrt {
-
-    public static String toStringFromLetterNumberToLetter(String stringText) {
-
-        String newStringText;
-
-        if (stringText.equals(null)) {
-            System.out.println("Text is null");
-            newStringText = "";
+public class Task16ToAlphabeticString {
+    public static String extractNumbers(String text){
+        if(text == null || text.isEmpty()){
+            return "Text is null";
         }
-
-        newStringText = stringText.trim();
-
-        String letterText = "";
-        String number = "0123456789";
-
-        for (int i = 0; i < newStringText.length(); i++) {
-            if (!number.contains(String.valueOf(newStringText.charAt(i)))) {
-                letterText += String.valueOf(newStringText.charAt(i));
-            }
-
-        }
-
-        if (letterText.isEmpty()) {
-            System.out.println("Text is empty");
-        } else {
-            System.out.println(letterText);
-        }
-
-        return letterText;
+        return text.replaceAll("[0-9]", "");
     }
 }

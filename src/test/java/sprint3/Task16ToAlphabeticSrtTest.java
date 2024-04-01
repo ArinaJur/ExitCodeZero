@@ -15,14 +15,17 @@ public class Task16ToAlphabeticSrtTest {
     private static final String URL = "https://www.textfixer.com/tools/remove-numbers-from-text.php";
     private static final String TEST_SENTENCE = "неCодержит5цифр";
     private static final String TEST_SENTENCE1 = "45645643456";
-//    private static final String TEST_SENTENCE1 = " ";
-//    private static final String TEST_SENTENCE1 = "";
-//    private static final String TEST_SENTENCE1 = " sdf23d@#$f5 ";
+    private static final String TEST_SENTENCE2 = " ";
+    private static final String TEST_SENTENCE3 = "";
+    private static final String TEST_SENTENCE4 = " sdf23d@#$f5 ";
 
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.addArguments("--disable-dev-shm-usage");
+//        chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
     }
     @AfterClass
@@ -33,7 +36,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testRemoveNumbersFromText() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String expectedResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE);
+        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE);
 
         openPage(URL);
 
@@ -43,14 +46,14 @@ public class Task16ToAlphabeticSrtTest {
         WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
         removeNumbersBtn.click();
 
-        String actualResult = textarea.getAttribute("value");
+        String expectedResult = textarea.getAttribute("value");
 
         Assert.assertEquals(actualResult, expectedResult);
     }
     @Test
     public void testRemoveNumbersFromTextContainsOnlyNumbers() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String expectedResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE1);
+        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE1);
 
         openPage(URL);
 
@@ -60,7 +63,58 @@ public class Task16ToAlphabeticSrtTest {
         WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
         removeNumbersBtn.click();
 
-        String actualResult = textarea.getAttribute("value");
+        String expectedResult = textarea.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+    @Test
+    public void testTextContainsOnlySpace() {
+        Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
+        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE2);
+
+        openPage(URL);
+
+        WebElement textarea = driver.findElement(By.xpath("//textarea[@id='newText']"));
+        textarea.sendKeys(TEST_SENTENCE2);
+
+        WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
+        removeNumbersBtn.click();
+
+        String expectedResult = textarea.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+    @Test
+    public void testEmptyText() {
+        Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
+        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE3);
+
+        openPage(URL);
+
+        WebElement textarea = driver.findElement(By.xpath("//textarea[@id='newText']"));
+        textarea.sendKeys(TEST_SENTENCE3);
+
+        WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
+        removeNumbersBtn.click();
+
+        String expectedResult = textarea.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+    @Test
+    public void testTextContainsNumbersAndSymbols() {
+        Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
+        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE4);
+
+        openPage(URL);
+
+        WebElement textarea = driver.findElement(By.xpath("//textarea[@id='newText']"));
+        textarea.sendKeys(TEST_SENTENCE4);
+
+        WebElement removeNumbersBtn = driver.findElement(By.name("remove-numbers"));
+        removeNumbersBtn.click();
+
+        String expectedResult = textarea.getAttribute("value");
 
         Assert.assertEquals(actualResult, expectedResult);
     }

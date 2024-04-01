@@ -1,6 +1,6 @@
 package sprint3;
 
-public class ReplaceWordsWithNumbers {
+public class Task10ReplaceWordsWithNumbers {
     /**
      * 10. Написать метод, который принимает на вход текст, н-р, “Упади семь раз и восемь раз поднимись.”
      * Метод должен менять слова-цифры на арабские цифры, те “Упади 7 раз и 8 раз поднимись.”

@@ -21,7 +21,7 @@ public class CountTextSpacesTest {
     @Test
     public void testCountTextSpaces() {
 
-        int expectedResult = new CountTextSpaces().toCountSpaces(TEST_TEXT);
+        int expectedResult = new Task20CountTextSpaces().toCountSpaces(TEST_TEXT);
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();

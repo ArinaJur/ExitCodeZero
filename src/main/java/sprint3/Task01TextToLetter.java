@@ -15,7 +15,7 @@ package sprint3;
 
 public class Task01TextToLetter {
 
-    public static int calculateLetterFromText(String text, char letter) {
+    public int calculateLetterFromText(String text, char letter) {
 
         int count = 0;
 
@@ -34,21 +34,14 @@ public class Task01TextToLetter {
                     System.out.println(newText.charAt(i));
 
                     count++;
-
                 }
-
             }
         } else {
             System.out.println("Symbol is not a letter");
 
             count = -1;
         }
-        System.out.println(count);
-        return count;
-    }
 
-    public static void main(String[] args) {
-        calculateLetterFromText("dsgfff  33 %^%& ff ",' ');
-//        System.out.println();
+        return count;
     }
 }

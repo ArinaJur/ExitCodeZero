@@ -1,20 +1,16 @@
 package automationexercise;
 
 import automationexercise.model.AccountCreatedPage;
-import automationexercise.model.SignupPage;
+import automationexercise.model.BaseTest;
 import automationexercise.model.DeleteAccountPage;
 import automationexercise.model.LoginPage;
 import automationexercise.model.MainPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import automationexercise.model.SignupPage;
 import org.testng.annotations.Test;
 
 import java.util.Random;
+
+import static automationexercise.Helper.BASE_URL;
 
 /**
  * 1. Launch browser
@@ -36,26 +32,12 @@ import java.util.Random;
  * 17. Click 'Delete Account' button
  * 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
  * */
-public class TC01PageFactoryTest {
-    private WebDriver driver;
-    private static final String url = "https://automationexercise.com";
-
-    @BeforeClass
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-        driver.get(url);
-    }
-
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
+public class TC01PageFactoryTest extends BaseTest {
 
     @Test
     public void testLogin() {
+        getDriver().manage().window().maximize();
+        getDriver().get(BASE_URL);
         login();
         signup();
         create();
@@ -63,21 +45,20 @@ public class TC01PageFactoryTest {
     }
 
     private void login() {
-        MainPage mainPage = new MainPage(driver);
+        MainPage mainPage = new MainPage(getDriver());
         mainPage.clickLoginLink();
         String expectedResult = "New User Signup!";
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.verifySignupHeaderText();
         loginPage.verifyText(expectedResult);
         loginPage.enterName("Alice");
-        loginPage.enterEmail("alice%d@gmail.com".formatted(
-                new Random().nextInt(10000)));
+        loginPage.enterEmail("alice%d@gmail.com".formatted(new Random().nextInt(10000)));
         loginPage.clickSignupButton();
     }
 
     private void signup() {
         String expectedResult = "ENTER ACCOUNT INFORMATION";
-        SignupPage signupPage = new SignupPage(driver);
+        SignupPage signupPage = new SignupPage(getDriver());
         signupPage.verifyAccountInformationHeader();
         signupPage.verifyAccountText(expectedResult);
         signupPage.clickNewsletter();
@@ -97,29 +78,18 @@ public class TC01PageFactoryTest {
     private void create() {
         String expectedResult = "Alice";
         String expected = "ACCOUNT CREATED!";
-        AccountCreatedPage create = new AccountCreatedPage(driver);
+        AccountCreatedPage create = new AccountCreatedPage(getDriver());
         create.verifyAccountCreated(expected);
         create.clickContinue();
-        skipAdv();
+        Helper.skipAd(getDriver());
         create.verifyAccountLoginName(expectedResult);
     }
 
     private void delete() {
         String expected = "ACCOUNT DELETED!";
-        DeleteAccountPage delete = new DeleteAccountPage(driver);
+        DeleteAccountPage delete = new DeleteAccountPage(getDriver());
         delete.clickDeleteLink();
         delete.verifyAccountDeleted(expected);
         delete.clickContinueLink();
-    }
-
-    private void skipAdv() {
-        try {
-            Thread.sleep(2000);
-            Actions actions = new Actions(driver);
-            actions.moveByOffset(100, 200).click().perform();
-            Thread.sleep(2000);
-        } catch (InterruptedException e){
-            Thread.currentThread().interrupt();
-        }
     }
 }

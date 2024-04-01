@@ -19,7 +19,7 @@ import sprint3.Task21CountNumbersInText;
 
 public class ConflictsSolvingTest extends BaseTest {
 
-    private static final String URL = "https://involta.ru/tools/length-chars/";
+    private static final String BASE_URL = "https://involta.ru/tools/length-chars/";
     private static final String INPUT_TEXT = "Это мой Текст из 3 слов и 11 букв";
 
     @Test
@@ -28,7 +28,7 @@ public class ConflictsSolvingTest extends BaseTest {
 
         WebDriver driver = getDriver();
         driver.manage().window().maximize();
-        driver.get(URL);
+        driver.get(BASE_URL);
         Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));

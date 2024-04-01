@@ -51,8 +51,8 @@ public class ConflictsSolvingTest extends BaseTest {
 
         WebDriver driver = getDriver();
         driver.manage().window().maximize();
+        Thread.sleep(2000);
         driver.get(BASE_URL);
-        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);

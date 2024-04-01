@@ -25,9 +25,12 @@ public class ConflictsSolvingTest extends BaseTest {
     @Test
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = Task21CountNumbersInText.countNumbersInText(INPUT_TEXT);
+        String jjj = "";
+        int aaa = 0;
 
-        WebDriver driver = getDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get(URL);
 
         Thread.sleep(1000);
 

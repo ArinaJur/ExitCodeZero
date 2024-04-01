@@ -25,7 +25,6 @@ public class ConflictsSolvingTest extends BaseTest {
     @Test
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = Task21CountNumbersInText.countNumbersInText(INPUT_TEXT);
-
         String jjj = "";
         int aaa = 0;
 

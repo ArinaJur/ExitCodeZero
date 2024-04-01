@@ -1,6 +1,7 @@
 package automationexercise;
 
 import automationexercise.model.AccountCreatedPage;
+import automationexercise.model.BaseTest;
 import automationexercise.model.DeleteAccountPage;
 import automationexercise.model.LoginPage;
 import automationexercise.model.MainPage;
@@ -51,8 +52,7 @@ public class TC01PageFactoryTest extends BaseTest {
         loginPage.verifySignupHeaderText();
         loginPage.verifyText(expectedResult);
         loginPage.enterName("Alice");
-        loginPage.enterEmail("alice%d@gmail.com".formatted(
-                new Random().nextInt(10000)));
+        loginPage.enterEmail("alice%d@gmail.com".formatted(new Random().nextInt(10000)));
         loginPage.clickSignupButton();
     }
 

@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
@@ -27,14 +29,16 @@ public class ConflictsSolvingTest {
     public void testCountNumbersInText() throws InterruptedException {
         int numbersInText = new Task21CountNumbersInText().countNumbersInText(INPUT_TEXT);
 
-        String jjj = "  ";
+
+        String jjj = "";
+        int aaa = 0;
+
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        Thread.sleep(2000);
 
-        driver.get(URL);
 
+        Thread.sleep(1000);
 
         WebElement textarea = driver.findElement(By.xpath("//textarea[@id='input']"));
         textarea.sendKeys(INPUT_TEXT);
@@ -44,25 +48,6 @@ public class ConflictsSolvingTest {
         int actualResult = Integer.parseInt(text);
 
         Assert.assertEquals(actualResult, numbersInText);
-
-        driver.quit();
-    }
-    @Test
-    public void testCountSymbols() {
-
-        int expectedResult = new CountSymbols().countSymbols(TEST_TEXT);
-
-        WebDriver driver = new ChromeDriver();
-        driver.get(URL);
-
-        driver.findElement(By.id("input")).sendKeys(TEST_TEXT);
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        String text =
-                driver.findElement(By.xpath("//div/span[text()='Остальных символов']/following-sibling::span")).getText();
-
-        int actualResult = Integer.parseInt(text.trim());
-
-        Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }

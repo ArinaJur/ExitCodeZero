@@ -21,20 +21,30 @@ import org.testng.annotations.Test;
 
 public class Task16ToAlphabeticStringTest {
 
-
-
     @Test
-    public void  toText () {
+    public void toText() {
         WebDriver driver = new ChromeDriver();
 
-//        String data = "неСодержит5цифр";
-        String data = "неСодержит 5цифр ";
+//        String data = "неСодержит5цифр";  // pass
+//        String data = " неСодержит5цифр ";  // fail
+//        String data = "неСодержит 5цифр ";  // fail
+//        String data = "неСодержит 5цифр";  // fail
+//        String data = "45645643456"; // fail
+//        String data = " 45645643456 "; // fail
+//        String data = " "; // fail
+//        String data = ""; // fail
+//        String data = " sdf-23d@#$f5 "; // fail
+        String data = "sdf-23d @#$f5"; // fail
 
-        String expectedResult = Task16ToAlphabeticSrt.toStringFromLetterNumberToLetter(data);
+        String expectedResult = Task16ToAlphabeticSrt.toStringFromLetterNumberToLetterYS(data);
+//        String expectedResult = Task16ToAlphabeticString.extractNumbers(data);
 
-                driver.get("https://www.textfixer.com/tools/remove-numbers-from-text.php");
+        driver.get("https://www.textfixer.com/tools/remove-numbers-from-text.php");
+
         WebElement text = driver.findElement(By.xpath("//textarea[@id='newText']"));
+
         text.sendKeys("неСодержит5цифр");
+
         driver.findElement(By.xpath("//input[@value='Remove Numbers']")).click();
 
         String actualResult = text.getAttribute("value");
@@ -42,9 +52,71 @@ public class Task16ToAlphabeticStringTest {
         Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
-
     }
 
+    @Test
+    public void deleteNumberFromWordYS() {
+        WebDriver driver = new ChromeDriver();
 
+        String data = "неСодержит5цифр";  // pass
+//        String data = " неСодержит5цифр ";  // fail
+//        String data = "неСодержит 5цифр ";  // fail
+//        String data = "неСодержит 5цифр";  // pass
+//        String data = "45645643456"; // pass
+//        String data = " 45645643456 "; // fail
+//        String data = " "; // fail
+//        String data = ""; // fail
+//        String data = " sdf-23d@#$f5 "; // fail
+//        String data = "sdf-23d @#$f5"; // pass
 
+        String expectedResult = Task16ToAlphabeticString.extractNumbers(data);
+
+        String testText = "";
+
+        driver.get("https://www.textfixer.com/tools/remove-numbers-from-text.php");
+
+        WebElement text = driver.findElement(By.xpath("//textarea[@id='newText']"));
+
+        text.sendKeys(data);
+        driver.findElement(By.xpath("//input[@value='Remove Numbers']")).click();
+
+        String actualResult = text.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+    @Test
+    public void deleteNumberFromAnyWordYS() {
+        WebDriver driver = new ChromeDriver();
+
+        String data = "неСодержит5цифр";  // pass
+//        String data = " неСодержит5цифр ";  // pass
+//        String data = "неСодержит 5цифр ";  // pass
+//        String data = "неСодержит 5цифр";  // pass
+//        String data = "45645643456"; // pass
+//        String data = " 45645643456 "; // pass
+//        String data = " "; // pass
+//        String data = ""; // pass
+//        String data = " sdf-23d@#$f5 "; // pass
+//        String data = "sdf-23d @#$f5"; // pass
+
+        String expectedResult = Task16ToAlphabeticSrt.toStringFromLetterNumberToLetterYS(data);
+
+        String testText = "";
+
+        driver.get("https://www.textfixer.com/tools/remove-numbers-from-text.php");
+
+        WebElement text = driver.findElement(By.xpath("//textarea[@id='newText']"));
+
+        text.sendKeys(data);
+        driver.findElement(By.xpath("//input[@value='Remove Numbers']")).click();
+
+        String actualResult = text.getAttribute("value");
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
 }

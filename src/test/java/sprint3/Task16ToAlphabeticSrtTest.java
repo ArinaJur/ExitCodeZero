@@ -36,7 +36,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testRemoveNumbersFromText() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE);
+        final String actualResult = task16.toStringFromLetterNumberToLetterYS(TEST_SENTENCE);
 
         openPage(URL);
 
@@ -53,7 +53,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testRemoveNumbersFromTextContainsOnlyNumbers() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE1);
+        final String actualResult = task16.toStringFromLetterNumberToLetterYS(TEST_SENTENCE1);
 
         openPage(URL);
 
@@ -70,7 +70,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testTextContainsOnlySpace() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE2);
+        final String actualResult = task16.toStringFromLetterNumberToLetterYS(TEST_SENTENCE2);
 
         openPage(URL);
 
@@ -87,7 +87,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testEmptyText() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE3);
+        final String actualResult = task16.toStringFromLetterNumberToLetterYS(TEST_SENTENCE3);
 
         openPage(URL);
 
@@ -104,7 +104,7 @@ public class Task16ToAlphabeticSrtTest {
     @Test
     public void testTextContainsNumbersAndSymbols() {
         Task16ToAlphabeticSrt task16 = new Task16ToAlphabeticSrt();
-        final String actualResult = task16.toStringFromLetterNumberToLetter(TEST_SENTENCE4);
+        final String actualResult = task16.toStringFromLetterNumberToLetterYS(TEST_SENTENCE4);
 
         openPage(URL);
 

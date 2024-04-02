@@ -47,7 +47,7 @@ public class Task13VerifyProductInCartTest extends BaseTest {
 
         if (!getDriver().findElements(By.xpath("//ins[@class='adsbygoogle adsbygoogle-noablate']")).isEmpty()) {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            jse.executeScript(
+            js.executeScript(
                     "const ads = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (ads.length > 0) ads[0].remove();"
             );
 
@@ -66,7 +66,7 @@ public class Task13VerifyProductInCartTest extends BaseTest {
 
         if (!getDriver().findElements(By.xpath("//ins[@class='adsbygoogle adsbygoogle-noablate']")).isEmpty()) {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            jse.executeScript(
+            js.executeScript(
                     "const ads = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (ads.length > 0) ads[0].remove();"
             );
 
@@ -77,7 +77,7 @@ public class Task13VerifyProductInCartTest extends BaseTest {
 
         if (!getDriver().findElements(By.xpath("//ins[@class='adsbygoogle adsbygoogle-noablate']")).isEmpty()) {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            jse.executeScript(
+            js.executeScript(
                     "const ads = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (ads.length > 0) ads[0].remove();"
             );
 

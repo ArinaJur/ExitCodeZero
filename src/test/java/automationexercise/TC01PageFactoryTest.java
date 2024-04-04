@@ -1,12 +1,12 @@
 package automationexercise;
 
 import automationexercise.model.AccountCreatedPage;
-import automationexercise.model.BaseTest;
 import automationexercise.model.DeleteAccountPage;
 import automationexercise.model.LoginPage;
 import automationexercise.model.MainPage;
 import automationexercise.model.SignupPage;
 import org.testng.annotations.Test;
+import runner.BaseTest;
 
 import java.util.Random;
 

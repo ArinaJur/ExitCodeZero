@@ -14,7 +14,7 @@ package sprint3;
 
 public class Task16ToAlphabeticSrt {
 
-    public static String toStringFromLetterNumberToLetter(String stringText) {
+    public static String toStringFromLetterNumberToLetterYS(String stringText) {
 
         String newStringText;
 

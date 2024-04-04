@@ -7,14 +7,13 @@
  * считать количество цифр из таблицы результатов
  * подтвердить, что в тексте содержится 3 цифры
  */
-import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import runner.BaseTest;
 import sprint3.CountSymbols;
 import sprint3.Task21CountNumbersInText;
 @Ignore

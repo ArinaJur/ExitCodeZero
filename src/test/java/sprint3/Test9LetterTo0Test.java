@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 //    //- считать слово “Абракадабра” из заголовка статьи
 //    //- с помощью алгоритма другого человека преобразовать actualResult
 //    //подтвердить, что при замене самой часто встречающейся буквы из слова “Абракадабра” получается слово “0бр0к0д0бр0”
-public class Task9LetterTo0Test {
+public class Test9LetterTo0Test {
 
     private static final String URL = "https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%80%D0%B0%D0%BA%D0%B0%D0%B4%D0%B0%D0%B1%D1%80%D0%B0_(%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F)";
 

@@ -13,14 +13,14 @@ package automationexercise;
 //4. Нажмите кнопку «Тестовые примеры».
 //5. Убедитесь, что пользователь успешно перешел на страницу тестовых примеров.
 
-import automationexercise.model.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import runner.BaseTest;
 
 import static automationexercise.Helper.BASE_URL;
 
-public class TC07VerifyTestCasesPage extends BaseTest {
+public class TC07VerifyTestCasesPageTest extends BaseTest {
 
 @Test
     public void testVerifyTestCasesPage() {

@@ -1,0 +1,36 @@
+name: Run tests on Docker
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Install Maven
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y maven
+
+      - name: Build the Java project
+        run: mvn clean package
+
+      - name: Build the Docker image
+        run: docker build -t selenium-docker .
+
+      - name: Run the Docker container
+        run: docker run -it --rm --name selenium-docker selenium-docker

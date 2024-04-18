@@ -13,7 +13,7 @@ public class TC21Test {
     //functional, UI, navigation
     @Test
     public void testAddReviewOnProductHP() throws InterruptedException {
-        final String expectedResult = "ALL PRODUCTS";
+        final String expectedResult = "FEATURES ITEMS";
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
